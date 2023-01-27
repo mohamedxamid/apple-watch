@@ -20,6 +20,7 @@
     --text-color: #333333;
     --dark-gray: #666666;
     --shade-gray: #777777;
+    --gray: #888;
     --primary: #ea625c;
     --primary-dark: #c9514c;
     --black: #000000;
@@ -84,8 +85,7 @@ img {
 /* BUTTON */
 .button {
     display: inline-block;
-    text-align: center;
-    width: 260px;
+    min-width: 260px;
     padding: 12px;
     font-weight: 700;
     font-size: 18px;
@@ -93,6 +93,7 @@ img {
     background-color: var(--primary);
     text-transform: uppercase;
     border: none;
+    text-align: center;
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
@@ -230,6 +231,12 @@ img {
     width: 490px;
 }
 
+.lead-cta--white {
+    --black: #fff;
+    --shade-gray: #fff;
+    --gray: #fff;
+}
+
 .lead-cta-heading {
     margin-top: 0;
     margin-bottom: 30px;
@@ -243,7 +250,7 @@ img {
     margin-top: 0;
     margin-bottom: 30px;
     padding-left: 37px;
-    border-left: 3px solid #888;
+    border-left: 3px solid var(--gray);
     color: var(--shade-gray);
 }
 
@@ -295,6 +302,42 @@ img {
 }
 
 
+/* PROMO */
+.promo {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.promo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.promo-img {
+    width: 400px;
+    height: 600px;
+    object-fit: cover;
+}
+
+
+/* RUNNERS */
+.runners {
+    /* width: 1250px; */
+    padding-top: 240px;
+    padding-bottom: 240px;
+    background-image: url("../images/runners-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.runners-lead-cta {
+    margin-left: auto;
+}
+
+
 /* RETINA BG */
 @media
 only screen and (-webkit-min-device-pixel-ratio: 2),
@@ -305,5 +348,8 @@ only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) { 
     .hero {
         background-image: url("../images/intro-bg@2x.jpg")
+    }
+    .promo-wrapper {
+        background-image: url("../images/watch-in-hand@2x.jpg")
     }
 }
