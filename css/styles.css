@@ -349,7 +349,7 @@ only screen and (                min-resolution: 2dppx) {
     .hero {
         background-image: url("../images/intro-bg@2x.jpg")
     }
-    .promo-wrapper {
-        background-image: url("../images/watch-in-hand@2x.jpg")
+    .runners {
+        background-image: url("../images/runners-bg@2x.jpg")
     }
 }
