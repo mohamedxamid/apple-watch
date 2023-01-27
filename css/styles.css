@@ -1,3 +1,32 @@
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/roboto-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../fonts/roboto-v30-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* CUSTOM PROPERTIES */
+:root {
+    --text-color: #333333;
+    --dark-gray: #666666;
+    --shade-gray: #777777;
+    --primary: #ea625c;
+    --primary-dark: #c9514c;
+    --black: #000000;
+    --white: #ffffff;
+    --text-font: "Roboto", "Arial", sans-serif;
+}
+
 /* GLOBAL */
 html {
     box-sizing: border-box;
@@ -17,10 +46,10 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: var(--text-font);
     font-size: 16px;
     line-height: 1.5;
-    color: #222;
+    color: var(--text-color);
     background-color: #fff;
 }
 
@@ -29,11 +58,16 @@ img {
     height: auto;
 }
 
+*:focus {
+    outline: 2px dashed var(--primary);
+    outline-offset: 3px;
+}
+
 
 /* CONTAINER */
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     padding-left: 50px;
     padding-right: 50px;
     margin-left: auto;
@@ -44,4 +78,156 @@ img {
 /* MAIN CONTENT */
 .main-content {
     flex-grow: 1;
+}
+
+
+/* BUTTON */
+.button {
+    display: inline-block;
+    text-align: center;
+    width: 260px;
+    padding: 12px;
+    font-weight: 700;
+    font-size: 18px;
+    color: var(--white);
+    background-color: var(--primary);
+    text-transform: uppercase;
+    border: none;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--primary-dark);
+}
+
+.button:active {
+    opacity: 0.6;
+}
+
+
+/* SITE HEADER */
+.site-header {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.site-header-container {
+    display: flex;
+    align-items: center;
+}
+
+.site-header-logo {
+    margin-right: auto;
+    transition: opacity 0.3s ease;
+}
+
+.site-header-logo:hover {
+    opacity: 0.8;
+}
+
+.site-header-logo:active {
+    opacity: 0.6;
+}
+
+.site-header-logo-img {
+    display: block;
+    width: 35px;
+    height: 42px;
+    object-fit: contain;
+}
+
+
+/* SITENAV */
+.sitenav {
+    margin-right: 40px;
+}
+
+.sitenav-list {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.sitenav-item:not(:last-child) {
+    margin-right: 30px;
+}
+
+.sitenav-link {
+    display: block;
+    padding-top: 6px;
+    padding-bottom: 3px;
+    border-bottom: 3px solid transparent;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: border-bottom 0.3s ease;
+}
+
+.sitenav-link:hover {
+    border-bottom: 3px solid var(--text-color);
+}
+
+.sitenav-link:active {
+    opacity: 0.6;
+}
+
+
+/* SEARCH FORM */
+.search-form-input {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border: none;
+    border-bottom: 1px solid var(--text-color);
+}
+
+
+/* HERO CONTENT */
+.hero {
+    padding-top: 140px;
+    padding-bottom: 185px;
+    border-bottom: 2px solid #ddd;
+    background-image: url("../images/intro-bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 587px 565px;
+    background-position: left calc(50% + 500px) bottom
+}
+
+.lead-cta {
+    max-width: 100%;
+    width: 490px;
+}
+
+.lead-cta-heading {
+    margin-top: 0;
+    margin-bottom: 30px;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 1.2;
+    color: var(--black);
+}
+
+.lead-cta-text {
+    margin-top: 0;
+    margin-bottom: 30px;
+    padding-left: 37px;
+    border-left: 3px solid #888;
+    color: var(--shade-gray);
+}
+
+
+/* RETINA BG */
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) { 
+    .hero {
+        background-image: url("../images/intro-bg@2x.jpg")
+    }
 }
