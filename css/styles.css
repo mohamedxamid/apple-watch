@@ -404,6 +404,15 @@ only screen and (                min-resolution: 2dppx) {
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    .hero {
+        padding-top: 100px;
+        padding-bottom: 145px;
+        background-size: 487px 465px;
+        background-position: left calc(50% + 400px) bottom 0;
+    }
+}
+
 @media only screen and (max-width: 800px) {
     .sitenav {
         position: absolute;
@@ -434,6 +443,17 @@ only screen and (                min-resolution: 2dppx) {
     .site-header__sitenav-toggler {
         display: block;
     }
+
+    .hero {
+        padding-top: 50px;
+        padding-bottom: 80px;
+        background-size: 387px 365px;
+        background-position: left calc(50% + 300px) bottom 0;
+    }
+
+    .lead-cta {
+        width: 390px;
+    }
 }
 
 @media only screen and (max-width: 500px) {
@@ -452,6 +472,19 @@ only screen and (                min-resolution: 2dppx) {
         margin-right: 0;
         margin-bottom: 16px;
     }
+
+    .hero {
+        padding-top: 50px;
+        padding-bottom: 292px;
+        background-size: 287px 266px;
+        background-position: left calc(50% + 50px) bottom 0;
+    }
+
+    .button {
+        width: 100%;
+        max-width: 260px;
+        min-width: 0;
+    }
 }
 
 @media only screen and (max-width: 350px) {
@@ -466,5 +499,9 @@ only screen and (                min-resolution: 2dppx) {
     
     .search-form-input::placeholder {
         font-size: 13px;
+    }
+
+    .lead-cta-text {
+        text-align: justify;
     }
 }
