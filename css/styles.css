@@ -4,7 +4,7 @@
     font-weight: 400;
     font-display: swap;
     src: url('../fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/roboto-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('../fonts/roboto-v30-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
@@ -12,7 +12,7 @@
     font-style: normal;
     font-weight: 700;
     src: url('../fonts/roboto-v30-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/roboto-v30-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('../fonts/roboto-v30-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* CUSTOM PROPERTIES */
@@ -138,8 +138,10 @@ img {
 
 /* SITE HEADER */
 .site-header {
+    position: relative;
     padding-top: 30px;
     padding-bottom: 30px;
+    background-color: #fff;
 }
 
 .site-header-container {
@@ -148,7 +150,8 @@ img {
 }
 
 .site-header-logo {
-    margin-right: auto;
+    flex-shrink: 0;
+    margin-right: 24px;
     transition: opacity 0.3s ease;
 }
 
@@ -170,6 +173,7 @@ img {
 
 /* SITENAV */
 .sitenav {
+    margin-left: auto;
     margin-right: 40px;
 }
 
@@ -212,6 +216,52 @@ img {
     padding-bottom: 6px;
     border: none;
     border-bottom: 1px solid var(--text-color);
+}
+
+
+/* SITE HEADER SITENAV TOGGLER */
+.site-header__sitenav-toggler {
+    display: none;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border: none;
+    position: relative;
+    z-index: 3;
+    margin-left: 16px;
+}
+
+.site-header__sitenav-toggler--active span {
+    height: 0;
+}
+.site-header__sitenav-toggler--active span::before {
+    transform: rotate(45deg);
+}
+.site-header__sitenav-toggler--active span::after {
+    transform: rotate(-45deg);
+}
+
+.site-header__sitenav-toggler span,
+.site-header__sitenav-toggler span::before,
+.site-header__sitenav-toggler span::after {
+    position: absolute;
+    top: 50%; margin-top: -1px;
+    left: 50%; margin-left: -10px;
+    width: 20px;
+    height: 2px;
+    background-color: #222;
+}
+.site-header__sitenav-toggler span::before,
+.site-header__sitenav-toggler span::after {
+    content: "";
+    display: block;
+    transition: 0.3s;
+}
+.site-header__sitenav-toggler span::before {
+    transform: translateY(-5px)
+}
+.site-header__sitenav-toggler span::after {
+    transform: translateY(5px)
 }
 
 
@@ -298,7 +348,7 @@ img {
     background-color: #ddd;
     margin-left: 0;
     box-shadow: 16px 0 0 0 #ddd,
-        32px 0 0 0 #ddd;
+    32px 0 0 0 #ddd;
 }
 
 
@@ -351,5 +401,70 @@ only screen and (                min-resolution: 2dppx) {
     }
     .runners {
         background-image: url("../images/runners-bg@2x.jpg")
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .sitenav {
+        position: absolute;
+        display: block;
+        left: 0;
+        top: -100%;
+        width: 100%;
+        opacity: 0;
+        transition: 0.3s;
+    }
+    
+    .site-header--open .sitenav {
+        top: 100%;
+        background-color: #ddd;
+        opacity: 1;
+        transition: 0.3s;
+    }
+    
+    .sitenav-list {
+        justify-content: flex-end;
+        padding: 30px 50px;
+    }
+    
+    .search-form {
+        margin-left: auto;
+    }
+    
+    .site-header__sitenav-toggler {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        padding-left: 22px;
+        padding-right: 22px;
+    }
+    
+    .sitenav-list {
+        padding: 22px;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    
+    .sitenav-item:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .site-header-logo {
+        margin-right: 18px;
+        width: 10%;
+    }
+    
+    .search-form-input {
+        width: 100%;
+    }
+    
+    .search-form-input::placeholder {
+        font-size: 13px;
     }
 }
